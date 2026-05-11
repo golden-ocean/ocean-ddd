@@ -2002,6 +2002,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "sys"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "async-trait",
+ "axum",
+ "serde",
+ "shared",
+ "sqlx",
+ "thiserror",
+ "tokio",
+ "validator",
+]
+
+[[package]]
 name = "thiserror"
 version = "2.0.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
