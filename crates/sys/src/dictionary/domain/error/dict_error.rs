@@ -5,10 +5,10 @@ pub enum DictDomainError {
     // --- 字典级别的错误 ---
     #[error("字典名称必须填写")]
     NameRequired,
-    #[error("字典编码必须填写")]
-    CodeRequired,
     #[error("字典名称长度必须在 2-64 之间")]
     NameLengthInvalid,
+    #[error("字典编码必须填写")]
+    CodeRequired,
     #[error("字典编码长度必须在 2-64 之间")]
     CodeLengthInvalid,
     #[error("系统内置字典，禁止修改或删除")]
@@ -19,12 +19,30 @@ pub enum DictDomainError {
     // --- 字典项级别的错误 ---
     #[error("字典选项标签必须填写")]
     ItemLabelRequired,
+    #[error("字典选项名称长度必须在 1-64 之间")]
+    ItemLabelLengthInvalid,
     #[error("字典选项值必须填写")]
     ItemValueRequired,
-    #[error("字典名称长度必须在 1-64 之间")]
-    ItemLabelLengthInvalid,
-    #[error("字典编码长度必须在 1-64 之间")]
+    #[error("字典选项编码长度必须在 1-64 之间")]
     ItemValueLengthInvalid,
     #[error("颜色格式错误，必须为 #RRGGBB")]
     ItemColorFormatInvalid,
+
+    // --- 托底的系统抽象错误 (System Fault) ---
+    #[error("领域状态持久化失败: {0}")]
+    PersistenceError(String),
+
+    #[error("字典名称已重复，请重新输入")]
+    NameAlreadyExists,
+    #[error("字典编码已重复，请重新输入")]
+    CodeAlreadyExists,
+    #[error("字典不存在")]
+    DictNotFound,
+
+    #[error("字典选项标签已重复，请重新输入")]
+    ItemLabelAlreadyExists,
+    #[error("字典选项值已重复，请重新输入")]
+    ItemValueAlreadyExists,
+    #[error("字典选项不存在")]
+    ItemNotFound,
 }

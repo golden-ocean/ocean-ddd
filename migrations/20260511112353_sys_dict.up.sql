@@ -34,6 +34,7 @@ CREATE TABLE sys_dict_item (
     label VARCHAR(64) NOT NULL,
     value VARCHAR(64) NOT NULL,
     color VARCHAR(7), -- 存 '#RRGGBB'
+    is_builtin BOOLEAN NOT NULL DEFAULT FALSE,
     sort INT NOT NULL DEFAULT 1000,
     remark VARCHAR(255),
     status SMALLINT NOT NULL DEFAULT 1,
