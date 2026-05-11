@@ -1,6 +1,25 @@
 [package]
 name = "shared"
 version = "0.1.0"
-edition = "2024"
+edition = { workspace = true }
 
 [dependencies]
+tokio = { workspace = true }
+axum = { workspace = true }
+
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+sqlx = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+
+dotenvy = { workspace = true }
+config = { workspace = true }
+validator = { workspace = true }

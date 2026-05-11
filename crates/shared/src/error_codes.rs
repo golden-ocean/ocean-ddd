@@ -1,0 +1,9 @@
+// 字典相关错误码
+pub const DICT_CODE_CONFLICT: &str = "DICT_CODE_CONFLICT";
+pub const DICT_NAME_CONFLICT: &str = "DICT_NAME_CONFLICT";
+pub const DICT_NOT_FOUND: &str = "DICT_NOT_FOUND";
+
+// 字典项相关错误码
+pub const DICT_ITEM_LABEL_CONFLICT: &str = "DICT_ITEM_LABEL_CONFLICT";
+pub const DICT_ITEM_VALUE_CONFLICT: &str = "DICT_ITEM_VALUE_CONFLICT";
+pub const DICT_ITEM_NOT_FOUND: &str = "DICT_ITEM_NOT_FOUND";

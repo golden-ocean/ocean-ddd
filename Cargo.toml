@@ -8,3 +8,35 @@ version = "0.1.0"
 edition = "2024"
 
 [workspace.dependencies]
+# 内部模块
+shared = { path = "crates/shared"}
+
+# 核心框架与运行时
+tokio = { version = "1", features = ["full"] }
+axum = { version = "0.8"}
+async-trait = { version = "0.1" }
+
+# 数据库与时间
+sqlx = { version = "0.8", features = ["runtime-tokio-rustls", "postgres","derive", "macros", "uuid", "chrono"] }
+# jiff = { version = "0.2", features = ["serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.0", features = ["v7", "serde"] }
+
+# 序列化与数据处理
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0" }
+
+# 错误处理
+anyhow = { version = "1.0" }
+thiserror = { version = "2.0" }
+
+# 字段验证
+validator = { version = "0.20", features = ["derive"] }
+
+# 日志
+tracing = { version = "0.1" }
+tracing-subscriber = { version = "0.3", features = ["env-filter"]}
+
+# 配置与工具
+config = { version = "0.15", features = ["toml"] }
+dotenvy = { version = "0.15" }
