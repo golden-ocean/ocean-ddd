@@ -1,19 +1,16 @@
-use serde::{Deserialize, Serialize};
+use crate::dictionary::domain::error::DictDomainError;
 
-use crate::dictionary::domain::error::DictDomianError;
-
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-#[serde(transparent)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct DictItemValue(String);
 
 impl DictItemValue {
-    pub fn new(value: impl Into<String>) -> Result<Self, DictDomianError> {
+    pub fn new(value: impl Into<String>) -> Result<Self, DictDomainError> {
         let value = value.into();
         if value.is_empty() {
-            return Err(DictDomianError::ItemValueRequired);
+            return Err(DictDomainError::ItemValueRequired);
         }
         if value.chars().count() > 64 {
-            return Err(DictDomianError::ItemValueLengthInvalid);
+            return Err(DictDomainError::ItemValueLengthInvalid);
         }
         Ok(Self(value))
     }

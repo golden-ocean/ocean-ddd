@@ -1,12 +1,11 @@
-use serde::{Deserialize, Serialize};
 use shared::prelude::{AuditMetadata, Id, Status, Uuid};
 
 use crate::dictionary::domain::entity::AggregateRoot;
-use crate::dictionary::domain::error::DictDomianError;
+use crate::dictionary::domain::error::DictDomainError;
 use crate::dictionary::domain::value_object::{DictCode, DictName};
 
 /// 字典聚合根实体
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct Dict {
     pub id: Id<Dict>,
     pub code: DictCode,
@@ -16,7 +15,6 @@ pub struct Dict {
     pub remark: Option<String>,
     pub status: Status,
 
-    #[serde(flatten)]
     pub audit: AuditMetadata,
 }
 
@@ -71,9 +69,9 @@ impl Dict {
     }
 
     /// 领域规则校验：是否允许被删除
-    pub fn check_can_delete(&self) -> Result<(), DictDomianError> {
+    pub fn check_can_delete(&self) -> Result<(), DictDomainError> {
         if self.is_builtin {
-            return Err(DictDomianError::BuiltInForbidden);
+            return Err(DictDomainError::BuiltInForbidden);
         }
         Ok(())
     }

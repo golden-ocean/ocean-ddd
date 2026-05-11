@@ -1,7 +1,7 @@
 use thiserror::Error;
 
 #[derive(Debug, Error)]
-pub enum DictDomianError {
+pub enum DictDomainError {
     // --- 字典级别的错误 ---
     #[error("字典名称必须填写")]
     NameRequired,
